@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Http;
 class ConsumeAPIController extends Controller
 {
     public function getAPI(){
-        $url = 'http://api.optad360.com/get?key=HJGHcZvJHZhjgew6qe67q6GHcZv3fdsAqxbvB33fdV&startDate=2021-08-11&endDate=2021-08-11&output=json';
+        $url = 'http://api.optad360.com/get?key='.env('API_KEY').'&startDate=2021-08-11&endDate=2021-08-11&output=json';
         $firms = Http::get($url)->json();
 
         foreach ($firms['data'] as $firm) {
